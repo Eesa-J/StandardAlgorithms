@@ -29,4 +29,13 @@ class Sorting {
         return dataSet
     }
     
+    func linearSearch(data: [Int], input: Int) -> Int {
+        for i in data {
+            if input == data[i] {
+                return i
+            }
+        return -1
+        }
+    }
+    
 }
