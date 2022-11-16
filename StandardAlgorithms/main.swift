@@ -7,17 +7,22 @@
 
 import Foundation
 
-func randomFunction(number: Int) {
-    for _ in 1...number {
-        print(Int.random(in: 0...100))
+func bubbleSort(data: [Int]) -> [Int] {
+    var dataSet = data
+    let last_position = dataSet.count - 1
+    var swap = true
+    while swap == true {
+        swap = false
+        for i in 0..<last_position {
+            if dataSet[i] > dataSet[i + 1] {
+                let temp = dataSet [i + 1]
+                dataSet [i + 1] = dataSet[i]
+                dataSet[i] = temp
+                
+                swap = true
+            }
+        }
     }
+    print(dataSet)
+    return dataSet
 }
-
-print("Hello, Eesa!")
-
-let question = "How are you today"
-let message = "\(question)?"
-
-randomFunction(number: 10)
-
-print(message)
