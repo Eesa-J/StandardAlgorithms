@@ -29,13 +29,50 @@ class Sorting {
         return dataSet
     }
     
+    func insertionSort(data: [Int]) -> [Int] {
+        var dataset = data
+        for i in 1...dataset.count {
+            let temp = dataset[i]
+            var j = i - 1
+            
+            while j >= 0 && temp < data[j] {
+                dataset[j+1] = data[j]
+                j = j - 1
+            }
+            dataset[j+1] = temp
+        }
+        return dataset
+    }
+    
     func linearSearch(data: [Int], input: Int) -> Int {
-        for i in data {
+        for i in 0...data.count {
             if input == data[i] {
                 return i
             }
+        }
         return -1
+    }
+
+    func binarySearch(data: [Int], input: Int) -> Int {
+        var lowerIndex = 0
+        var upperIndex = data.count - 1
+
+        while (true) {
+            let currentIndex = (lowerIndex + upperIndex)/2
+            if(data[currentIndex] == input) {
+                return currentIndex
+            }
+            else if (lowerIndex > upperIndex) {
+                return 0
+            }
+            else {
+                if (data[currentIndex] > input) {
+                    upperIndex = currentIndex - 1
+                }
+                else {
+                    lowerIndex = currentIndex + 1
+                }
+            }
         }
     }
-    
 }
