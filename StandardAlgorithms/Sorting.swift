@@ -31,12 +31,12 @@ class Sorting {
     
     func insertionSort(data: [Int]) -> [Int] {
         var dataset = data
-        for i in 1...dataset.count {
+        for i in 1...dataset.count - 1 {
             let temp = dataset[i]
             var j = i - 1
             
             while j >= 0 && temp < data[j] {
-                dataset[j+1] = data[j]
+                dataset[j+1] = dataset[j]
                 j = j - 1
             }
             dataset[j+1] = temp
