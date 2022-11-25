@@ -18,8 +18,30 @@ class Unknown {
             return 0
         }
         else {
-            return array[0] + array[length]
+            return array[0] + array[length - 1]
         }
         
+    }
+    
+    func findMode(array: [Int]) -> Int {
+        var mode = 0
+        var modeCount = 0
+        var currentInt = 0
+        var currentCount = 0
+        for i in 1...array.count - 1 {
+            let j = i - 1
+            currentInt = array[j]
+            currentCount += 1
+            if currentInt == array[j] {
+                currentCount += 1
+            }
+            else {
+                if currentCount > modeCount {
+                    mode = currentInt
+                    modeCount = currentCount
+                }
+            }
+        }
+        return mode
     }
 }
