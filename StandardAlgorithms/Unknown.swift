@@ -24,21 +24,27 @@ class Unknown {
     }
     
     func findMode(array: [Int]) -> Int {
+        var currentInt = 0
+        var currentCount = 1
         var mode = 0
         var modeCount = 0
-        var currentInt = 0
-        var currentCount = 0
+
         for i in 1...array.count - 1 {
-            let j = i - 1
-            currentInt = array[j]
-            currentCount += 1
-            if currentInt == array[j] {
+            currentInt = array[i - 1]
+            if currentInt == array[i] {
                 currentCount += 1
+                if modeCount < currentCount {
+                    mode = currentInt
+                }
             }
             else {
-                if currentCount > modeCount {
-                    mode = currentInt
+                if modeCount < currentCount {
                     modeCount = currentCount
+                    currentCount = 1
+                    mode = currentInt
+                }
+                else {
+                    currentCount = 1
                 }
             }
         }
